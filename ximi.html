@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>西米 - 刘晓蕊</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      /* 更适合手机浏览器动态地址栏 */
+      min-height: 100svh;
+      min-height: 100dvh;
+
+      background: #0f0f1a;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .split-container {
+      display: flex;
+      flex-direction: row;
+      /* 不要强行锁死高度，避免内容被切 */
+      min-height: 100vh;
+      min-height: 100svh;
+      min-height: 100dvh;
+    }
+
+    .left-side, .right-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .left-side { background: #1a1a2e; }
+
+    .right-side {
+      background: #0f0f1a;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      max-width: 600px;
+    }
+
+    img.ximi {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 90vh;
+
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 1.2s ease-out;
+    }
+
+    img.ximi.loaded {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .info-text {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.2s ease-out 0.4s;
+    }
+
+    .info-text.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .name {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #ffcc99;
+    }
+
+    .age {
+      font-size: 1.6rem;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
+        /* 让页面自然变长，可滚动 */
+        min-height: 100svh;
+        min-height: 100dvh;
+      }
+
+      .left-side, .right-side {
+        /* 关键：不要固定 50vh，避免裁切 */
+        height: auto;
+        padding: 16px;
+      }
+
+      .right-side {
+        max-width: 100%;
+        text-align: center;
+        padding: 22px 16px 28px;
+      }
+
+      img.ximi {
+        /* 关键：手机上限制图片高度，避免把文字挤出 */
+        max-height: 52svh;
+        max-height: 52dvh;
+      }
+
+      .info-text { font-size: 1.15rem; }
+      .name { font-size: 2.1rem; }
+      .age { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="split-container">
+    <div class="left-side">
+      <img src="ximi.jpg" alt="刘晓蕊 西米" class="ximi">
+    </div>
+
+    <div class="right-side">
+      <div class="info-text">
+        <div class="name">刘晓蕊</div>
+        <div class="age">21岁</div>
+        <p>网名西米</p>
+        <p>鸣野最可爱的主播，能歌善舞，温柔体贴，善解人意，是难能可贵真心想和所有家人交朋友、不薅票的主播，也是鸣野风格最多变的主播。是个让人一见到就非常非常喜爱的小朋友</p>
+      </div>
+
+      <a href="home.html"
+         style="display:inline-block;margin-top:30px;padding:12px 28px;background:#ffcc99;color:#000;text-decoration:none;border-radius:30px;font-weight:bold;font-size:1.1rem;box-shadow:0 4px 12px rgba(255,204,153,0.4);transition:all 0.3s;">
+        ← 回到首页
+      </a>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => document.querySelector('.ximi').classList.add('loaded'), 300);
+      setTimeout(() => document.querySelector('.info-text').classList.add('loaded'), 800);
+    });
+  </script>
+
+</body>
+</html>

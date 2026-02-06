@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>我们的故事</title>
+  <style>
+    /* 样式部分完全不变，省略以節省空間 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #0f0f1a;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ffcc99;
+      text-shadow: 0 0 15px rgba(255, 204, 153, 0.5);
+    }
+
+    .intro {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      max-width: 800px;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #ddd;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      max-width: 900px;
+    }
+
+    .date-btn {
+      display: inline-block;
+      padding: 18px 50px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(135deg, #99ccff, #66b3ff);
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(102, 179, 255, 0.4);
+      transition: all 0.35s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .date-btn:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(102, 179, 255, 0.6);
+      background: linear-gradient(135deg, #66b3ff, #99ccff);
+    }
+
+    .date-btn:active {
+      transform: translateY(-2px);
+    }
+
+    .back-btn {
+      margin-top: 80px;
+      padding: 14px 40px;
+      font-size: 1.2rem;
+      background: #444;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #666;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      .date-btn { 
+        font-size: 1.3rem; 
+        padding: 15px 40px; 
+      }
+      .intro { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>我们的故事</h1>
+
+  <p class="intro">
+    这里记录了西米与鱼蛋一起走过的点点滴滴<br>
+    每一个日期都是一段特别的回忆～
+  </p>
+
+  <div class="buttons-container">
+    <button class="date-btn" onclick="location.href='./stories/story_20251231.html'">2025.12.31</button>
+    <button class="date-btn" onclick="location.href='./stories/story_20260107.html'">2026.01.07</button>
+    <button class="date-btn" onclick="location.href='./stories/story_20260114.html'">2026.01.14</button>
+    <button class="date-btn" onclick="location.href='./stories/story_20260121.html'">2026.01.21</button>
+    <button class="date-btn" onclick="location.href='./stories/story_20260131.html'">2026.01.31</button>
+    <button class="date-btn" onclick="location.href='./stories/story_20260204.html'">2026.02.04</button>
+  </div>
+
+  <!-- 回到首页 -->
+  <a href="home.html" class="back-btn">← 回到首页</a>
+
+</body>
+</html>

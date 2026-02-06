@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>鱼蛋 - 谢佳翰</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      min-height: 100dvh;
+
+      background: #0f0f1a;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .split-container {
+      display: flex;
+      flex-direction: row;
+
+      /* 不强锁死高度，避免手机裁切 */
+      min-height: 100vh;
+      min-height: 100svh;
+      min-height: 100dvh;
+    }
+
+    .left-side, .right-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .left-side { background: #1a1a2e; }
+
+    .right-side {
+      background: #0f0f1a;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      max-width: 600px;
+    }
+
+    img.yudan {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 90vh;
+
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 1.2s ease-out;
+    }
+
+    img.yudan.loaded {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .info-text {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.2s ease-out 0.4s;
+    }
+
+    .info-text.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .name {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #99ccff; /* 鱼蛋用蓝色调，与西米区别 */
+    }
+
+    .age {
+      font-size: 1.6rem;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .split-container {
+        flex-direction: column;
+        min-height: 100svh;
+        min-height: 100dvh;
+      }
+
+      .left-side, .right-side {
+        /* 关键：不要固定 50vh，避免裁切 */
+        height: auto;
+        padding: 16px;
+      }
+
+      .right-side {
+        max-width: 100%;
+        text-align: center;
+        padding: 22px 16px 28px;
+      }
+
+      img.yudan {
+        /* 关键：手机上限制图片高度，避免把文字挤出 */
+        max-height: 52svh;
+        max-height: 52dvh;
+      }
+
+      .info-text { font-size: 1.15rem; }
+      .name { font-size: 2.1rem; }
+      .age { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="split-container">
+    <!-- 左半边：图片 -->
+    <div class="left-side">
+      <img src="fishegg.jpg" alt="谢佳翰 鱼蛋" class="yudan">
+    </div>
+
+    <!-- 右半边：文字 -->
+    <div class="right-side">
+      <div class="info-text">
+        <div class="name">谢佳翰</div>
+        <div class="age">29岁</div>
+        <p>网名鱼蛋</p>
+        <p>全网唯一跪着进场的玩家，能歌不能舞，温柔体贴，善解人意，帮助太多主播现在是刷拉的小卡拉米。现在是米家军最听话的军犬，非常喜欢鸣野这个大家庭，待着惬意。陪在西米身边也很放松，每天都笑着醒来，也幸福地睡去</p>
+      </div>
+
+      <a href="home.html" style="display:inline-block;margin-top:30px;padding:12px 28px;background:#ffcc99;color:#000;text-decoration:none;border-radius:30px;font-weight:bold;font-size:1.1rem;box-shadow:0 4px 12px rgba(255,204,153,0.4);transition:all 0.3s;">
+        ← 回到首页
+      </a>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => document.querySelector('.yudan').classList.add('loaded'), 300);
+      setTimeout(() => document.querySelector('.info-text').classList.add('loaded'), 800);
+    });
+  </script>
+
+</body>
+</html>
